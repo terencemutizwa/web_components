@@ -5,14 +5,16 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = {
     entry: {
-        app: './src/index.js',
+        todo_list: './src/web_components/todo_list.js',
+        todo_item: './src/web_components/todo_item.js',
+        todo_input: './src/web_components/todo_input.js',
+        app: './src/app.js',
         vendor: './src/vendor.js'
     },
     output: {
         filename: '[name].bundle.js',
         path: path.resolve(__dirname, 'dist'),
         publicPath: '/'
-
     },
     module: {
         rules: [
@@ -36,6 +38,15 @@ module.exports = {
                         includePaths: ['./src/']
                     }
                 }]
+            },
+            {
+                test: /\.js$/,
+                loader: 'babel-loader',
+                exclude: /(node_modules)/,
+                query: {
+                    presets: ['es2017', 'react', 'stage-2'],
+                    plugins: ['transform-decorators-legacy', 'transform-class-properties']
+                }
             },
             {
                 test: /\.(png|jpg|gif|woff|svg|eot|ttf|woff2)$/,
