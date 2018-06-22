@@ -21,6 +21,8 @@
   },
   "dependencies": {
     "@polymer/lit-element": "^0.5.2",
+    "@polymer/paper-button": "^3.0.0-pre.19",
+    "@polymer/paper-tabs": "^3.0.0-pre.19",
     "@polymer/polymer": "^3.0.2",
     "@webcomponents/webcomponentsjs": "github:webcomponents/webcomponentsjs",
     "axios": "~0.18.0",

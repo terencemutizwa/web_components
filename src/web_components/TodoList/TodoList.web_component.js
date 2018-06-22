@@ -2,8 +2,8 @@ import {LitElement, html} from '@polymer/lit-element';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import TodoList from '../../components/TodoList/TodoList.component';
-import 'font-awesome/css/font-awesome.min.css';
 
+import './todo-list.scss';
 
 class TodoListComponent extends LitElement {
 
@@ -11,16 +11,28 @@ class TodoListComponent extends LitElement {
         return {name: String}
     };
 
+    onClick = (e) => {
+        console.log("Clicked parent");
+        alert("Clicked");
+    };
+
     _render({name}) {
         const mountPoint = document.createElement('div');
         this.shadowRoot.appendChild(mountPoint);
         ReactDOM.render(
-            <TodoList />,
+            <TodoList name={name} clicked={this.onClick} />,
             mountPoint
         );
         return html`
+            <style>
+                .taber {
+                  background: green;
+                  color: white;
+                }
+            </style>
             <div>
-            <div>${name} <i class="fa fa-angle-left" ></i> </div>
+            <paper-button on-click=${this.onClick} raised  primary class="raised blue">WComp btn</paper-button>
+            <div>${name}  </div>
               ${mountPoint}
             </div>
         `;
