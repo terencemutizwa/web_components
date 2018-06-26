@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import './todo-list.scss';
 
 class TodoList extends React.Component {
@@ -16,7 +16,7 @@ class TodoList extends React.Component {
 
     render() {
         const paperStyle= {
-            border:'solid red 1px'
+            border:'solid purple 1px'
         };
         return (
             <div>

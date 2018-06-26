@@ -5,11 +5,9 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = {
     entry: {
-        todo_list: './src/web_components/todo_list.js',
-        todo_item: './src/web_components/todo_item.js',
-        todo_input: './src/web_components/todo_input.js',
-        app: './src/app.js',
-        vendor: './src/vendor.js'
+        todo_list: './src/web_components/todo_list.tsx',
+        app: './src/app.tsx',
+        vendor: './src/vendor.tsx'
     },
     output: {
         filename: '[name].bundle.js',
@@ -27,6 +25,13 @@ module.exports = {
                 use: ['style-loader', 'css-loader']
             },
             {
+                test: /\.(t|j)sx?$/,
+                use:
+                    {
+                        loader: 'awesome-typescript-loader'
+                    }
+            },
+            {
                 test: /\.scss$/,
                 use: [{
                     loader: 'style-loader' // creates style nodes from JS strings
@@ -38,15 +43,6 @@ module.exports = {
                         includePaths: ['./src/']
                     }
                 }]
-            },
-            {
-                test: /\.js$/,
-                loader: 'babel-loader',
-                exclude: /(node_modules)/,
-                query: {
-                    presets: ['es2017', 'react', 'stage-2'],
-                    plugins: ['transform-decorators-legacy', 'transform-class-properties']
-                }
             },
             {
                 test: /\.(png|jpg|gif|woff|svg|eot|ttf|woff2)$/,
@@ -73,7 +69,7 @@ module.exports = {
             template: './www/index.html'
         })
     ],
-    devServer:{
+    devServer: {
         historyApiFallback: true,
         hot: true,
         headers: {

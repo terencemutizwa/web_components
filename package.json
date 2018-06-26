@@ -24,6 +24,8 @@
     "@polymer/paper-button": "^3.0.0-pre.19",
     "@polymer/paper-tabs": "^3.0.0-pre.19",
     "@polymer/polymer": "^3.0.2",
+    "@types/react": "^16.4.2",
+    "@types/react-dom": "^16.0.6",
     "@webcomponents/webcomponentsjs": "github:webcomponents/webcomponentsjs",
     "axios": "~0.18.0",
     "bootstrap": "~4.0.0",
@@ -33,8 +35,8 @@
     "plural": "~1.1.0",
     "popper.js": "~1.14.3",
     "prop-types": "~15.6.1",
-    "react": "~16.2.0",
-    "react-dom": "~16.2.0",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
     "react-router": "~4.2.0",
     "react-router-dom": "~4.2.2",
     "react-shadow-dom-retarget-events": "^1.0.8"
@@ -47,6 +49,7 @@
     ]
   },
   "devDependencies": {
+    "awesome-typescript-loader": "^5.2.0",
     "babel-core": "~6.26.3",
     "babel-eslint": "~8.2.2",
     "babel-jest": "~23.0.1",
@@ -88,6 +91,7 @@
     "skin-deep": "~1.2.0",
     "source-map-loader": "^0.2.3",
     "style-loader": "~0.20.3",
+    "typescript": "^2.9.2",
     "url-loader": "~1.0.1",
     "web-components-loader": "^0.1.2",
     "webpack": "~4.1.1",
