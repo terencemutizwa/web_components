@@ -1,6 +1,7 @@
 import {LitElement, html} from '@polymer/lit-element';
 import React from 'react';
 import ReactDOM from 'react-dom';
+import retargetEvents from 'react-shadow-dom-retarget-events';
 import TodoList from '../../components/TodoList/TodoList.component';
 
 import './todo-list.scss';
@@ -23,16 +24,21 @@ class TodoListComponent extends LitElement {
             <TodoList name={name} clicked={this.onClick} />,
             mountPoint
         );
+        retargetEvents(this.shadowRoot);
         return html`
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
             <style>
-                .taber {
-                  background: green;
-                  color: white;
+                .s-app{
+                border: solid green 1px;
+                padding: 20px;
+                }
+                paper-button.danger {
+               background: red;
                 }
             </style>
-            <div>
-            <paper-button on-click=${this.onClick} raised  primary class="raised blue">WComp btn</paper-button>
-            <div>${name}  </div>
+            <div class="s-app">
+            <paper-button class="danger">Web paper</paper-button>
+            <button class="parent-button btn btn-primary" on-click="${this.onClick}">Polymer Button</button>
               ${mountPoint}
             </div>
         `;

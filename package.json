@@ -36,7 +36,8 @@
     "react": "~16.2.0",
     "react-dom": "~16.2.0",
     "react-router": "~4.2.0",
-    "react-router-dom": "~4.2.2"
+    "react-router-dom": "~4.2.2",
+    "react-shadow-dom-retarget-events": "^1.0.8"
   },
   "babel": {
     "presets": [
