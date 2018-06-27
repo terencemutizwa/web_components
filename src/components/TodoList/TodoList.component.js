@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import './todo-list.scss';
 
 class TodoList extends React.Component {
@@ -10,7 +10,7 @@ class TodoList extends React.Component {
         this.setState({btn})
     }
 
-    onClick = (e) => {
+    onClick = (any) => {
         this.props.clicked();
     };
 
@@ -24,13 +24,11 @@ class TodoList extends React.Component {
                 <h1>
                     React Zone:
                 </h1>
-                <paper-button onClick={this.onClick} style={paperStyle} raised className="indigo">Batana bepa with long text</paper-button>
                 <button className="btn btn-warning" onClick={this.onClick}>React button</button>
             </div>
 
         )
     }
-
 }
 
 export default TodoList;

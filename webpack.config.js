@@ -5,9 +5,9 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = {
     entry: {
-        todo_list: './src/web_components/todo_list.tsx',
-        app: './src/app.tsx',
-        vendor: './src/vendor.tsx'
+        todo_list: './src/web_components/todo_list.js',
+        app: './src/app.js',
+        vendor: './src/vendor.js'
     },
     output: {
         filename: '[name].bundle.js',
@@ -25,11 +25,13 @@ module.exports = {
                 use: ['style-loader', 'css-loader']
             },
             {
-                test: /\.(t|j)sx?$/,
-                use:
-                    {
-                        loader: 'awesome-typescript-loader'
-                    }
+                test: /\.js$/,
+                loader: 'babel-loader',
+                exclude: /(node_modules)/,
+                query: {
+                    presets: ['es2017', 'react', 'stage-2'],
+                    plugins: ['transform-decorators-legacy', 'transform-class-properties']
+                }
             },
             {
                 test: /\.scss$/,
